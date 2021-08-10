@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - '**'
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Manual trigger"
+  schedule:
+    - cron:  '0 4 * * *'
+
+jobs:
+
+  micro_ros_nuttx_app:
+    runs-on: ubuntu-latest
+    container: ubuntu:20.04
+    strategy:
+      matrix:
+        azure_rtos_version: [v6.1.7_rel]
+      fail-fast: false
+    steps:
+      - name: Dependencies
+        shell: bash
+        run: |
+          apt update
+          export DEBIAN_FRONTEND=noninteractive
+          apt install -y --no-install-recommends git build-essential gcc-arm-none-eabi python3-pip cmake ninja-build libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib g++-multilib gcc-multilib binutils-arm-none-eabi
+          pip3 install catkin_pkg lark-parser empy colcon-common-extensions
+      - uses: actions/checkout@v2
+        with:
+          path: repo
+          submodules: 'recursive'
+          fetch-depth: '0'
+      - name: Build
+        shell: bash
+        run: |
+          cd repo
+          git submodule foreach git fetch
+          git submodule foreach git checkout ${{ matrix.azure_rtos_version }}
+          cmake -Bbuild -GNinja
+          cmake --build build
+
+      - name: Check binaries
+        run: |
+          (test -f repo/build/app/stm32l475_azure_iot.bin) && true || false

@@ -1,0 +1,6 @@
+[submodule "azure_rtos/threadx"]
+	path = azure_rtos/threadx
+	url = https://github.com/azure-rtos/threadx.git
+[submodule "azure_rtos/netxduo"]
+	path = azure_rtos/netxduo
+	url = https://github.com/azure-rtos/netxduo.git
