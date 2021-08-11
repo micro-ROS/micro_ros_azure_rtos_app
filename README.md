@@ -12,7 +12,7 @@
 
 [![CI](https://github.com/micro-ROS/micro_ros_azure_rtos_app/actions/workflows/ci.yml/badge.svg)](https://github.com/micro-ROS/micro_ros_azure_rtos_app/actions/workflows/ci.yml)
 
-This example application has been tested in Azure RTOS 6.1.7 and in STMicroelectronics B-L475E-IOT01A.
+This example application has been tested in Azure RTOS 6.1.7 and STMicroelectronics B-L475E-IOT01A.
 
 ## Dependencies
 
