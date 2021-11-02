@@ -13,7 +13,7 @@ on:
 
 jobs:
 
-  micro_ros_nuttx_app:
+  micro_ros_azure_app:
     runs-on: ubuntu-latest
     container: ubuntu:20.04
     strategy:
