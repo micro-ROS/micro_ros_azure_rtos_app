@@ -43,7 +43,7 @@ $(EXTENSIONS_DIR)/micro_ros_dev/install:
 	git clone -b ros2 https://github.com/ament/googletest src/googletest; \
 	git clone -b master https://github.com/ros2/ament_cmake_ros src/ament_cmake_ros; \
 	git clone -b master https://github.com/ament/ament_index src/ament_index; \
-	colcon build --cmake-args -DBUILD_TESTING=OFF;
+	colcon build --cmake-args -DBUILD_TESTING=OFF -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=gcc;
 
 $(EXTENSIONS_DIR)/micro_ros_src/src:
 	@rm -rf micro_ros_src; \
@@ -69,12 +69,9 @@ $(EXTENSIONS_DIR)/micro_ros_src/src:
 	git clone -b master https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing src/ros2_tracing; \
 	git clone -b main https://github.com/micro-ROS/micro_ros_utilities src/micro_ros_utilities; \
     touch src/rosidl/rosidl_typesupport_introspection_cpp/COLCON_IGNORE; \
-    touch src/rcl_logging/rcl_logging_log4cxx/COLCON_IGNORE; \
     touch src/rcl_logging/rcl_logging_spdlog/COLCON_IGNORE; \
     touch src/rclc/rclc_examples/COLCON_IGNORE; \
-	touch src/rcl/rcl_yaml_param_parser/COLCON_IGNORE; \
-	cp -rf ../extra_packages src/extra_packages || :;
-
+	touch src/rcl/rcl_yaml_param_parser/COLCON_IGNORE;
 
 $(EXTENSIONS_DIR)/micro_ros_src/install: $(EXTENSIONS_DIR)/toolchain.cmake $(EXTENSIONS_DIR)/micro_ros_dev/install $(EXTENSIONS_DIR)/micro_ros_src/src
 	cd $(UROS_DIR); \
