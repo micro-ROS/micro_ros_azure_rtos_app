@@ -16,14 +16,14 @@ CXXFLAGS_INTERNAL := $(X_CXXFLAGS) -ffunction-sections -fdata-sections
 all: $(EXTENSIONS_DIR)/libmicroros.a
 
 clean:
-	rm -rf $(EXTENSIONS_DIR)/libmicroros.a; \
+	@rm -rf $(EXTENSIONS_DIR)/libmicroros.a; \
 	rm -rf $(EXTENSIONS_DIR)/include; \
 	rm -rf $(EXTENSIONS_DIR)/toolchain.cmake; \
 	rm -rf $(EXTENSIONS_DIR)/micro_ros_dev; \
 	rm -rf $(EXTENSIONS_DIR)/micro_ros_src;
 
 $(EXTENSIONS_DIR)/toolchain.cmake: $(EXTENSIONS_DIR)/toolchain.cmake.in
-	rm -f $(EXTENSIONS_DIR)/toolchain.cmake; \
+	@rm -f $(EXTENSIONS_DIR)/toolchain.cmake; \
 	cat $(EXTENSIONS_DIR)/toolchain.cmake.in | \
 		sed "s/@CMAKE_C_COMPILER@/$(subst /,\/,$(X_CC))/g" | \
 		sed "s/@CMAKE_CXX_COMPILER@/$(subst /,\/,$(X_CXX))/g" | \
@@ -35,7 +35,7 @@ $(EXTENSIONS_DIR)/toolchain.cmake: $(EXTENSIONS_DIR)/toolchain.cmake.in
 		> $(EXTENSIONS_DIR)/toolchain.cmake
 
 $(EXTENSIONS_DIR)/micro_ros_dev/install:
-	rm -rf micro_ros_dev; \
+	@rm -rf micro_ros_dev; \
 	mkdir micro_ros_dev; cd micro_ros_dev; \
 	git clone -b master https://github.com/ament/ament_cmake src/ament_cmake; \
 	git clone -b master https://github.com/ament/ament_lint src/ament_lint; \
@@ -74,7 +74,7 @@ $(EXTENSIONS_DIR)/micro_ros_src/src:
 	touch src/rcl/rcl_yaml_param_parser/COLCON_IGNORE;
 
 $(EXTENSIONS_DIR)/micro_ros_src/install: $(EXTENSIONS_DIR)/toolchain.cmake $(EXTENSIONS_DIR)/micro_ros_dev/install $(EXTENSIONS_DIR)/micro_ros_src/src
-	cd $(UROS_DIR); \
+	@cd $(UROS_DIR); \
 	unset AMENT_PREFIX_PATH; \
 	PATH="$(subst /opt/ros/$(ROS_DISTRO)/bin,,$(PATH))"; \
 	. ../micro_ros_dev/install/local_setup.sh; \
@@ -93,7 +93,7 @@ $(EXTENSIONS_DIR)/micro_ros_src/install: $(EXTENSIONS_DIR)/toolchain.cmake $(EXT
 		-DCMAKE_VERBOSE_MAKEFILE=OFF; \
 
 $(EXTENSIONS_DIR)/libmicroros.a: $(EXTENSIONS_DIR)/micro_ros_src/install
-	mkdir -p $(UROS_DIR)/libmicroros; cd $(UROS_DIR)/libmicroros; \
+	@mkdir -p $(UROS_DIR)/libmicroros; cd $(UROS_DIR)/libmicroros; \
 	for file in $$(find $(UROS_DIR)/install/lib/ -name '*.a'); do \
 		folder=$$(echo $$file | sed -E "s/(.+)\/(.+).a/\2/"); \
 		mkdir -p $$folder; cd $$folder; $(AR) x $$file; \

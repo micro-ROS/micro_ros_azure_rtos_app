@@ -40,7 +40,7 @@ target_include_directories(libmicroros-prebuilt INTERFACE ${CMAKE_CURRENT_LIST_D
 
 execute_process(
     COMMAND
-        ${submake} -j -f libmicroros.mk
+        ${submake} -j -f libmicroros.mk get_package_names
     WORKING_DIRECTORY
         ${CMAKE_CURRENT_LIST_DIR}
     OUTPUT_VARIABLE
