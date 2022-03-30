@@ -38,3 +38,16 @@ add_dependencies(libmicroros-prebuilt libmicroros_project)
 target_link_libraries(libmicroros-prebuilt INTERFACE ${CMAKE_CURRENT_LIST_DIR}/libmicroros.a)
 target_include_directories(libmicroros-prebuilt INTERFACE ${CMAKE_CURRENT_LIST_DIR}/include)
 
+execute_process(
+    COMMAND
+        ${submake} -j -f libmicroros.mk get_package_names
+    WORKING_DIRECTORY
+        ${CMAKE_CURRENT_LIST_DIR}
+    OUTPUT_VARIABLE
+        INCLUDE_ROS2_PACKAGES
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+
+foreach(pkg ${INCLUDE_ROS2_PACKAGES})
+    target_include_directories(libmicroros-prebuilt INTERFACE ${CMAKE_CURRENT_LIST_DIR}/include/${pkg})
+endforeach()
