@@ -57,15 +57,16 @@ $(EXTENSIONS_DIR)/micro_ros_src/src:
 	git clone -b main https://github.com/micro-ROS/rmw-microxrcedds src/rmw-microxrcedds; \
 	git clone -b master https://github.com/micro-ROS/rosidl_typesupport src/rosidl_typesupport; \
 	git clone -b main https://github.com/micro-ROS/rosidl_typesupport_microxrcedds src/rosidl_typesupport_microxrcedds; \
-	git clone -b master https://github.com/ros2/rosidl src/rosidl; \
-	git clone -b master https://github.com/ros2/rmw src/rmw; \
-	git clone -b master https://github.com/ros2/rcl_interfaces src/rcl_interfaces; \
-	git clone -b master https://github.com/ros2/rosidl_defaults src/rosidl_defaults; \
-	git clone -b master https://github.com/ros2/unique_identifier_msgs src/unique_identifier_msgs; \
-	git clone -b master https://github.com/ros2/common_interfaces src/common_interfaces; \
-	git clone -b master https://github.com/ros2/test_interface_files src/test_interface_files; \
-	git clone -b master https://github.com/ros2/rmw_implementation src/rmw_implementation; \
-	git clone -b master https://github.com/ros2/rcl_logging src/rcl_logging; \
+	git clone -b rolling https://github.com/ros2/rosidl src/rosidl; \
+	git clone -b rolling https://github.com/ros2/rosidl_core src/rosidl_core; \
+	git clone -b rolling https://github.com/ros2/rmw src/rmw; \
+	git clone -b rolling https://github.com/ros2/rcl_interfaces src/rcl_interfaces; \
+	git clone -b rolling https://github.com/ros2/rosidl_defaults src/rosidl_defaults; \
+	git clone -b rolling https://github.com/ros2/unique_identifier_msgs src/unique_identifier_msgs; \
+	git clone -b rolling https://github.com/ros2/common_interfaces src/common_interfaces; \
+	git clone -b rolling https://github.com/ros2/test_interface_files src/test_interface_files; \
+	git clone -b rolling https://github.com/ros2/rmw_implementation src/rmw_implementation; \
+	git clone -b rolling https://github.com/ros2/rcl_logging src/rcl_logging; \
 	git clone -b master https://gitlab.com/micro-ROS/ros_tracing/ros2_tracing src/ros2_tracing; \
 	git clone -b main https://github.com/micro-ROS/micro_ros_utilities src/micro_ros_utilities; \
     touch src/rosidl/rosidl_typesupport_introspection_cpp/COLCON_IGNORE; \
