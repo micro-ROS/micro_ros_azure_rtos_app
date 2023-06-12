@@ -2,8 +2,8 @@
 Changelog for package micro_ros_azurertos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.1.0 (2023-06-12)
+------------------
 * Iron release (`#8 <https://github.com/micro-ROS/micro_ros_azure_rtos_app/issues/8>`_)
 * Update branches to rolling (`#7 <https://github.com/micro-ROS/micro_ros_azure_rtos_app/issues/7>`_)
 * Add rosidl_core (`#6 <https://github.com/micro-ROS/micro_ros_azure_rtos_app/issues/6>`_)
