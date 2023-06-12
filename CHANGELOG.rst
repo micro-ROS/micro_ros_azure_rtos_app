@@ -2,6 +2,9 @@
 Changelog for package micro_ros_azurertos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.0.1 (2023-06-12)
+------------------
+
 3.0.0 (2022-05-25)
 ------------------
 * Update to humble (`#5 <https://github.com/micro-ROS/micro_ros_azure_rtos_app/issues/5>`_)
