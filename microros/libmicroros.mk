@@ -58,7 +58,7 @@ $(EXTENSIONS_DIR)/micro_ros_src/src:
 	git clone -b iron https://github.com/micro-ROS/rosidl_typesupport src/rosidl_typesupport; \
 	git clone -b iron https://github.com/micro-ROS/rosidl_typesupport_microxrcedds src/rosidl_typesupport_microxrcedds; \
 	git clone -b iron https://github.com/ros2/rosidl src/rosidl; \
-	git clone -b iron https://github.com/micro-ROS/rosidl_dynamic_typesupport src/rosidl_dynamic_typesupport; \
+	git clone -b iron https://github.com/ros2/rosidl_dynamic_typesupport src/rosidl_dynamic_typesupport; \
 	git clone -b iron https://github.com/ros2/rosidl_core src/rosidl_core; \
 	git clone -b iron https://github.com/ros2/rmw src/rmw; \
 	git clone -b iron https://github.com/ros2/rcl_interfaces src/rcl_interfaces; \
