@@ -27,7 +27,7 @@ jobs:
           apt update
           export DEBIAN_FRONTEND=noninteractive
           apt install -y --no-install-recommends git build-essential gcc-arm-none-eabi python3-pip cmake ninja-build libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib g++-multilib gcc-multilib binutils-arm-none-eabi
-          pip3 install catkin_pkg lark-parser empy colcon-common-extensions
+          pip3 install catkin_pkg lark-parser colcon-common-extensions
       - uses: actions/checkout@v2
         with:
           path: repo
