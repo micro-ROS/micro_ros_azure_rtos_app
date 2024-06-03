@@ -15,7 +15,7 @@ jobs:
 
   micro_ros_azure_app:
     runs-on: ubuntu-latest
-    container: ubuntu:20.04
+    container: ubuntu:24.04
     strategy:
       matrix:
         azure_rtos_version: [v6.1.7_rel]
